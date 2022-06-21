@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Resume Template</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+      h1 {
+        width: 100%;
+      }
+    </style>
+    <script>
+      function onDocLoad() {
+
+        var fdata = JSON.parse(window.localStorage.getItem("formDate"));
+
+        for (var key in fdata) {
+          try {
+            document.getElementById(key).innerHTML = fdata[key];
+          } catch (e) {
+            console.log("errorwithfields " + key);
+          }
+        }
+      }
+
+      function printCV() { 
+                
+                window.print();
+      }
+      let file = document.getElementById('imgField').files[0]; //getting first(index at 0) file
+                console.log(file);
+                    let reader = new FileReader();
+
+                      reader.readAsDataURL(file);
+
+                      console.log(reader.result);
+
+              //set the image to template
+                  reader.onloadend = function () {
+          document.getElementById('imgT').src = reader.result;
+            };
+          
+
+    </script>
+  </head>
+  <body onload="onDocLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="mt-4">
+            <div class="card">
+              <div class="card-header">
+                <img class="card-img-top" src="image7.jpg" />
+              </div>
+              <div class="card-body">
+                <div class="col-md-4 background text-center">
+                  <img
+                  src="default-logo.png"
+                  alt="default logo"
+                  class="img-logo"
+                  id="imgT"
+                  />
+                <h4><span id="fname" name="fname"></span> <span name="lname" id="lname"></span></h4>
+                <p>Software Developer</p>
+                <p><span name="dob" id="dob"></span></p>
+                <p><span name="gender" id="gender"></span></p>
+              </div>
+              <div class="card-footer">
+                <p><span name="email" id="email"></span></p>
+                <p><span name="mobile" id="mobile"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 mt-4">
+          <div class="row shadow-sm bg-warning">
+            <h1 class="text-center">Resume Builder</h1>
+          </div>
+          <div class="row row shadow-sm bg-light mt-4">
+            <h5>Objective :</h5>
+            <p class="p-4">
+              <span name="Objective" id="Objective"></span>
+            </p>
+          </div>
+          <div class="row row shadow-sm bg-white mt-4">
+            <h5>Educational Qualification :</h5>
+            <table width="1000" class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Education</th>
+                  <th scope="col">School/University</th>
+                  <th scope="col">Year of Passing</th>
+                  <th scope="col">Percentage/CGPA</th>
+                </tr>
+              </thead>
+              <tr>
+                <td><label> Post Graduation: </label></td>
+                <td><span name="university1" id="university1"></span></td>
+                <td><span name="yearofpassing1" id="yearofpassing1"></span></td>
+                <td><span name="percentage1" id="percentage1"></span></td>
+              </tr>
+              <tr>
+                <td><label> Graduation: </label></td>
+                <td><span name="university2" id="university2"></span></td>
+                <td><span name="yearofpassing2" id="yearofpassing2"></span></td>
+                <td><span name="percentage2" id="percentage2"></span></td>
+              </tr>
+              <tr>
+                <td><label> Intermidate: </label></td>
+                <td><span name="university3" id="university3"></span></td>
+                <td><span name="yearofpassing3" id="yearofpassing3"></span></td>
+                <td><span name="percentage3" id="percentage3"></span></td>
+              </tr>
+              <tr>
+                <td><label> High School: </label></td>
+                <td><span name="university4" id="university4"></span></td>
+                <td><span name="yearofpassing4" id="yearofpassing4"></span></td>
+                <td><span name="percentage4" id="percentage4"></span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="row row shadow-sm bg-light mt-4">
+            <h5>Work Experience :</h5>
+            <table width="1000" class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Organization</th>
+                  <th scope="col">Joining Date</th>
+                  <th scope="col">Releaving Date</th>
+                </tr>
+              </thead>
+              <tr>
+                <td><span name="organization1" id="organization1"></span></td>
+                <td><span name="doj1" id="doj1"></span></td>
+                <td><span name="dor1" id="dor1"></span></td>
+              </tr>
+              <tr>
+                <td><span name="organization2" id="organization2"></span></td>
+                <td><span name="doj2" id="doj2"></span></td>
+                <td><span name="dor2" id="dor2"></span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="row row shadow-sm bg-white mt-4">
+            <h5>Skills :</h5>
+            <table width="1000" class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Technology</th>
+                  <th scope="col">Version Worked On</th>
+                  <th scope="col">Last Worked On</th>
+                  <th scope="col">Ratting</th>
+                </tr>
+              </thead>
+              <tr>
+                <td><span name="tech1" id="tech1"></span></td>
+                <td><span name="version1" id="version1"></span></td>
+                <td><span name="lastworkedon1" id="lastworkedon1"></span></td>
+                <td><span name="rate1" id="rate1"></span></td>
+              </tr>
+              <tr>
+                <td><span name="tech2" id="tech2"></span></td>
+                <td><span name="version2" id="version2"></span></td>
+                <td><span name="lastworkedon2" id="lastworkedon2"></span></td>
+                <td><span name="rate2" id="rate2"></span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="row row shadow-sm bg-light mt-4">
+            <h5>Declaration :</h5>
+            <p class="p-4">
+              <span name="description" id="description"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mt-4">
+        <div class="col-12">
+          <button class="btn btn-success" onclick="printCV()">Print</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
